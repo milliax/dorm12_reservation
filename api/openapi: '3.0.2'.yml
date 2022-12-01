@@ -1,0 +1,110 @@
+openapi: '3.0.2'
+info:
+  title: NYCU Dorm12 Reservation API document
+  version: '0.0.1'
+  description: |-
+    This is an unofficial swagger documentary built by student in NYCU, milliax
+
+    Some useful links:
+    - [dorm12 reservation platform](http://book.dorm.nycu.edu.tw/ischool/public/reservation/index.php?bid=6)
+  termsOfService: http://swagger.io/terms/
+  contact: 
+    email: milliax.mg11@nycu.edu.tw
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://book.dorm.nycu.edu.tw/{basePath}
+    description: The API server
+    variables:
+      basePath:
+        default: ischool
+paths:
+  /config/login.php:
+    post:
+      requestBody:
+        description: login payload
+        content:
+          "application/x-www-form-urlencoded":
+            schema:
+              $ref: "#/components/schemas/loginForm" 
+      responses:
+        '302':
+          description: redirect to reserve page
+components:
+  schemas:
+    loginForm:
+      properties:
+        client_id:
+          type: string
+        continue:
+          type: string
+          default: "http://book.dorm.nycu.edu.tw/ischool/public/reservation/index.php?bid=6"
+        permission_scope:
+          type: string
+          default: "reservation"
+        scope:
+          type: "string"
+          default: ""
+        paction:
+          type: "string"
+          default: "login"
+        window:
+          type: "string"
+          default: "0"
+        data:
+          type: "string"
+          default: "bid=6"
+        access_token:
+          type: "string"
+          default: ""
+        response_type:
+          type: "string"
+          default: "session"
+        timestamp:
+          type: "string"
+          default: "time in nanoseconds"
+        private_token:
+          type: "string"
+          default: "I don't know where it came from"
+        grecaptcha_site_key:
+          type: "string"
+          default: ""
+        grecaptcha_response_token:
+          type: "string"
+          default: ""
+        username:
+          type: "string"
+          default: "111704011"
+          description: Your student ID
+        password:
+          type: "string"
+          default: "287518"
+          description: The last 6 digits of your ID
+        login:
+          type: "string"
+          default: "登入"
+        forget-username:
+          type: "string"
+          default: ""
+        forget-email:
+          type: "string"
+          default: ""
+        new_password:
+          type: "string"
+          default: ""
+        new_password_confirmation:
+          type: "string"
+          default: ""
+        login-username:
+          type: "string"
+          default: ""
+        login-level:
+          type: "string"
+          default: ""
+
+  
+        
